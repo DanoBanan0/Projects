@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Grey+Qo&display=swap');
+
+body{
+    background-color: #1b7431e7 !important;
+    color: #fff !important;
+    font-family: "Edu VIC WA NT Beginner", cursive !important;
+}
+
+/* Header Section */ 
+
+.header .navbar .logo h2{
+    font-size: 2.5em !important;
+}
+.header .navbar .logo h2 span{
+    color: rgb(10, 165, 165) !important;
+    text-shadow: 1px 1px 3px white;
+}
+.header .navbar .menu-navbar{
+    width: 40vw;
+    display:flex;
+    justify-content: space-around ;  
+    list-style: none;  
+}
+.header .navbar .menu-navbar li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* MAIN SECTION */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    gap: 2rem;
+    align-items: center;
+}
+.main-content .img-container img{
+    width: 30vw;
+}
+
+.btn {
+    transition: .5s;
+}
+.btn:hover {
+    transition: 5s;
+}
