@@ -1,4 +1,5 @@
 import { Product } from './clases/product';
+import { Tienda } from './clases/tienda';
 import './style.css'
 
 
@@ -27,6 +28,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
   </div>
 `
+//Inicializamos la Tienda para poder manipular los productor
+const tienda = new Tienda();
+
 
 //document.querySelector<HTMLElement>('#parrafo')!.innerText = "Esto es texto desde el p";
 const form = document.getElementById("form-product") as HTMLFormElement;
@@ -48,6 +52,6 @@ form.addEventListener('submit', (e:SubmitEvent) => {
     
     let productito = new Product(id,nombre,precio,cantidad)
     console.log(productito);
-    localStorage.setItem('prodcutos',JSON.stringify(productito))
+    tienda.agregarProducto(productito);
   });
 
