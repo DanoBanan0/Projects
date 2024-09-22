@@ -1,30 +1,53 @@
+import { Product } from './clases/product';
 import './style.css'
+
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-      <h1>Holis desde MainTS</h1>
+      <h1>Gestion de Tienda</h1>
 
-      <form id="login-Form">
+      <form id="form-product">
         <section>
-          <label>Nombre de usuraio</label>
-          <input type="text" id="username" name="name" placeholder="Ingresa Nombre de Ususario">
+          <label>Nombre de Producto</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ingresa Nombre de producto">
         </section>
 
         <section>
-          <label>Password</label>
-          <input type="password" id="password" name="password" placeholder="Ingresa Tu Password">
+          <label>Precio</label>
+          <input type="text" id="precio" name="precio" placeholder="Ingresa su precio">
         </section>
 
-        <button type="submit">Iniciar Sesion</button>
+        <section>
+          <label>Cantidad</label>
+          <input type="text" id="cantidad" name="cantidad" placeholder="Ingresa su cantidad">
+        </section>
+
+        <button type="submit">Agregar Producto</button>
       </form>
 
   </div>
 `
 
 //document.querySelector<HTMLElement>('#parrafo')!.innerText = "Esto es texto desde el p";
-const form = document.getElementById("login-Form") as HTMLFormElement;
+const form = document.getElementById("form-product") as HTMLFormElement;
 
 form.addEventListener('submit', (e:SubmitEvent) => {
-  e.preventDefault();
-  console.log("Holiwis");
-})
+    e.preventDefault();
+    console.log("Holiwis");
+    
+    const id = Date.now();
+    //sleccionaos los elementos a mostrar
+    const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+    const precio = parseFloat((document.getElementById('precio') as HTMLInputElement).value);
+    const cantidad = parseInt((document.getElementById('cantidad') as HTMLInputElement).value);
+    
+    console.log(id);
+    console.log(nombre);
+    console.log(precio);
+    console.log(cantidad);
+    
+    let productito = new Product(id,nombre,precio,cantidad)
+    console.log(productito);
+    localStorage.setItem('prodcutos',JSON.stringify(productito))
+  });
+
